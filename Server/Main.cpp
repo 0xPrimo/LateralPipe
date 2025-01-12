@@ -33,11 +33,9 @@ VOID InitializeSecurityDescriptor( PSECURITY_ATTRIBUTES sa )
 {
 	SECURITY_DESCRIPTOR* sd;
 
-	sd = ( SECURITY_DESCRIPTOR* ) LocalAlloc( LPTR,
-											  SECURITY_DESCRIPTOR_MIN_LENGTH );
+	sd = ( SECURITY_DESCRIPTOR* ) LocalAlloc( LPTR, SECURITY_DESCRIPTOR_MIN_LENGTH );
 
-	InitializeSecurityDescriptor( sd,
-								  SECURITY_DESCRIPTOR_REVISION );
+	InitializeSecurityDescriptor( sd, SECURITY_DESCRIPTOR_REVISION );
 
 	SetSecurityDescriptorDacl( sd, TRUE, ( PACL ) NULL, FALSE );
 
@@ -61,16 +59,16 @@ int main( int argc, char* argv[ ] )
 
 	InitializeSecurityDescriptor( &sa );
 
-	hNamedPipeServer = CreateNamedPipeA( argv[ 1 ],					// pipename
-										 PIPE_ACCESS_DUPLEX,		// read/write access
-										 PIPE_TYPE_MESSAGE |		// message type mode
-										 PIPE_READMODE_MESSAGE |	// message read mode
-										 PIPE_WAIT,					// blocking mode
-										 PIPE_UNLIMITED_INSTANCES,	// max instances
-										 sizeof( g_Payload ),		// write buffer size
-										 sizeof( g_Payload ),		// read buffer size
-										 0,							// use default wait time
-										 &sa );						// set security attributes to anyone
+	hNamedPipeServer = CreateNamedPipeA( argv[ 1 ],				// pipename
+					     PIPE_ACCESS_DUPLEX,		// read/write access
+					     PIPE_TYPE_MESSAGE |		// message type mode
+					     PIPE_READMODE_MESSAGE |	        // message read mode
+					     PIPE_WAIT,				// blocking mode
+					     PIPE_UNLIMITED_INSTANCES,	        // max instances
+					     sizeof( g_Payload ),		// write buffer size
+					     sizeof( g_Payload ),		// read buffer size
+					     0,					// use default wait time
+ 					     &sa );				// set security attributes to anyone
 	if ( hNamedPipeServer == INVALID_HANDLE_VALUE )
 	{
 		printf( "[!] CreateNamedPipeA Failed (%d).\n", GetLastError( ) );
