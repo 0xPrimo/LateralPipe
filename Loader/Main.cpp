@@ -56,13 +56,13 @@ int main( int argc, char* argv[ ] )
 	sprintf( NetworkPath, "\\\\%s\\pipe\\%s", Server, PipeName );
 
 	hPipe = CreateFileA( NetworkPath,
-						 GENERIC_READ |
-						 GENERIC_WRITE,
-						 0,
-						 NULL,
-						 OPEN_EXISTING,
-						 0,
-						 NULL );
+				GENERIC_READ |
+				GENERIC_WRITE,
+				0,
+				NULL,
+				OPEN_EXISTING,
+				0,
+				NULL );
 	if ( hPipe == INVALID_HANDLE_VALUE )
 	{
 		printf( "[!] CreateFileA Failed (%d)\n", GetLastError( ) );
