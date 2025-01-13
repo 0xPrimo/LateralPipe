@@ -46,12 +46,12 @@ VOID InitializeSecurityDescriptor( PSECURITY_ATTRIBUTES sa )
 
 int main( int argc, char* argv[ ] )
 {
-	HANDLE					hNamedPipeServer = NULL;
-	PCHAR					PipeName = NULL;
-	HANDLE					hThread = NULL;
-	BOOL					bStatus = FALSE;
-	DWORD					dwBytesRead = 0;
-	PVOID					pBuffer = NULL;
+	HANDLE				hNamedPipeServer = NULL;
+	PCHAR				PipeName = NULL;
+	HANDLE				hThread = NULL;
+	BOOL				bStatus = FALSE;
+	DWORD				dwBytesRead = 0;
+	PVOID				pBuffer = NULL;
 	SECURITY_ATTRIBUTES		sa;
 
 	if ( argc < 2 )
