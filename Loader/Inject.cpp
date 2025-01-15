@@ -23,7 +23,7 @@ VOID Decrypt( PVOID lpBuffer, DWORD dwSize )
 {
 	DWORD	dwIndex = 0;
 	PDWORD	Buffer = ( PDWORD ) lpBuffer;
-	CHAR	Key[ 18 ];
+	CHAR	Key[ 4 ];
 
 	Key[ 0 ] = 0x92;
 	Key[ 1 ] = 0x87;
